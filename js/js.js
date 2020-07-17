@@ -1,116 +1,158 @@
-// let items = [];
+ 
+  // ///WAY  1////
+  // let cont = document.getElementById('container');
 
-// fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699")
-//   .then(function (res) {
-//     return res.json();
-//   })
-//   .then(function (result) {
-//     items = result.items;
-//     console.log(items);
-//   }),
-//   function (error) {
-//     console.log(error);
-//   };
+  // let ul = document.createElement('ul');
+  // ul.setAttribute('style','padding:0')
+  // ul.setAttribute('class','row')
   
+
+  // const url = 'https://www.googleapis.com/books/v1/volumes?q=search'
+  // fetch(url )
+  // .then(resp => resp.json()) // Transform data to json
+  // .then(data =>  {
+  //   console.log(data)
+  //   let listItem = data.items; // Get data
   
-  ///WAY  1////
+  //   // Map each
+  //   return listItem.map(listItem => { 
+  //     let li = document.createElement('li'); //  Create the elements
+  //     li.setAttribute('class','cols')
+  //     li.innerHTML = `${listItem.volumeInfo.pageCount}`;
+
+  //     // Add the span 
+  //     let span = document.createElement('span')
+  //     span.className ="list"
+  //     span.innerHTML = `${listItem.id}`
+      
+  //     // Add the src of the img
+  //     let img = document.createElement('img')
+  //     img.src= listItem.volumeInfo.imageLinks.smallThumbnail; 
+
+  //     // Append all our elements
+  //     li.appendChild(img) 
+  //     li.appendChild(span)
+  //     ul.appendChild(li)  // Append all our elements
+        
+ 
+  //   })
+
+    
+  // })
+  // .catch(function(error) {
+  //   console.log(error);
+  // }); 
+  // cont.appendChild(ul)
+
+
+   
+  ///WAY  2////
   let cont = document.getElementById('container');
 
   let ul = document.createElement('ul');
   ul.setAttribute('style','padding:0')
   ul.setAttribute('class','row')
-  
+  let html = '';
 
   const url = 'https://www.googleapis.com/books/v1/volumes?q=search'
   fetch(url )
-  .then(status)
-  .then(resp => resp.json()) // Transform the data into json
+  .then(resp => resp.json()) // Transform data to json
   .then(data =>  {
     console.log(data)
-    let listItem = data.items; // Get the results
+    let listItem = data.items; // Get data
   
-    return listItem.map(function(listItem) { // Map through the results and for each run the code below
-      let li = document.createElement('li'); //  Create the elements
-      li.setAttribute('class','col-3')
-      li.innerHTML = `${listItem.volumeInfo.pageCount}`;
-
-      let span = document.createElement('span')
-      span.innerHTML = `${listItem.id}`
-      
-      let img = document.createElement('img')
-      img.src= listItem.volumeInfo.imageLinks.smallThumbnail; // Add the source of the image to be the src of the img element
-      li.appendChild(img) // Append all our elements
-
-      li.appendChild(span)
-      ul.appendChild(li)  // Append all our elements
-        
+    // Map each
+    return listItem.map((listItem) => { 
  
+    //generate HTML
+let htmlsec = `<div class="cols ">
+<div class="product-card">
+    <div class="product-list-content">
+        <div class="card-image">
+            <img src=${listItem.volumeInfo.imageLinks.thumbnail} alt=""> 
+        </div>
+        <div class="product-card--body">
+            <div class="product-header">
+                <a href="" class="author">
+                   ${listItem.volumeInfo.authors[0]}
+                </a>
+                <h3>
+                    <a href="${listItem.volumeInfo.canonicalVolumeLink}" tabindex="0">${listItem.volumeInfo.title} </a>
+                    </h3>
+            </div>
+            <article>
+                <h2 class="sr-only">${listItem.volumeInfo.publisher}</h2>
+                <p>: ${listItem.volumeInfo.pageCount} </p>
+            </article>
+        </div>
+    </div>
+</div>
+</div>`;
+
+html += htmlsec;
+
+let container = document.querySelector('.row');
+container.innerHTML = html;
     })
 
-    
   })
   .catch(function(error) {
     console.log(error);
   }); 
-  cont.appendChild(ul)
-
-  ///WAY  2////
-  // fetch('https://randomuser.me/api/?results=10')
-  // .then((resp) => resp.json()) // Transform the data into json
-  // .then(function(data) {
-  //   console.log(data)
-  //   let authors = data.results; // Get the results
-  //   return authors.map(function(author) { // Map through the results and for each run the code below
-  //     let li = document.createElement('li'); //  Create the elements
-  //     li.innerHTML = `${author.name.first} ${author.name.last}`;
-  //     let img = document.createElement('img')
-  //     img.src= author.picture.medium; // Add the source of the image to be the src of the img element
-  //     li.appendChild(img) // Append all our elements
-  //     ul.appendChild(li)  // Append all our elements
-        
- 
-  //   })
-  // })
-  // .catch(function(error) {
-  //   console.log(error);
-  // }); 
-
-
-  /////WAY 3///////
-//   fetch("https://jsonplaceholder.typicode.com/users")
-//   .then(res => res.json())
-//   .then(
-//     result => {
-//       this.setState({
-//         isLoaded: true,
-//         items: result
-//       });
-//     },
-//     error => {
-//       this.setState({
-//         isLoaded: true,
-//         error: error
-//       });
-//     }
-//   );
+  
+let str = "Hello world!";
+let res = str.substr(11, 1);
 
 
 
+/////WAY  3////
+// async function getBooks() {
+//   let url = 'https://www.googleapis.com/books/v1/volumes?q=search';
+//   try {
+//       let res = await fetch(url);
+//       return await res.json();
+//   } catch (error) {
+//       console.log(error);
+//   }
+// }
+
+//   async function renderBook() {
+//     let books = await getBooks();
+//     console.log(books)
+//     let html = '';
+//     books.items.map(listItem => {
+//       let htmlsec = `<div class="cols ">
+//       <div class="product-card">
+//           <div class="product-list-content">
+//               <div class="card-image">
+//                   <img src=${listItem.volumeInfo.imageLinks.smallThumbnail} alt=""> 
+//               </div>
+//               <div class="product-card--body">
+//                   <div class="product-header">
+//                       <a href="" class="author">
+//                          ${listItem.volumeInfo.authors[0]}
+//                       </a>
+//                       <h3>
+//                           <a href="${listItem.volumeInfo.canonicalVolumeLink}" tabindex="0">${listItem.volumeInfo.title} </a>
+//                           </h3>
+//                   </div>
+//                   <article>
+//                       <h2 class="sr-only">${listItem.volumeInfo.subtitle}</h2>
+//                       <p>${listItem.volumeInfo.description} </p>
+//                   </article>
+              
+              
+//               </div>
+//           </div>
+//       </div>
+//       </div>`;
+//         html += htmlsec;
+//     });
+
+//     let container = document.querySelector('.row');
+//     container.innerHTML = html;
+// }
+
+// renderBook();
 
 
-
-  // let arr =['alpha', 'bravo', 'charlie', 'delta', 'echo','45'];
-  // let cont = document.getElementById('container');
-
-  // let ul = document.createElement('ul');
-  // ul.setAttribute('style','padding:0')
-  // ul.setAttribute('class','col-3')
-
-  // for(i=0; i <= arr.length -1 ;i++){
-  //     let li= document.createElement('li');
-    
-  //     li.innerHTML = arr[i];
-  //     ul.appendChild(li)
-
-  // }
-  // cont.appendChild(ul)
