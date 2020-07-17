@@ -71,19 +71,23 @@ let htmlsec = `<div class="cols ">
         <div class="card-image">
             <img src=${listItem.volumeInfo.imageLinks.thumbnail} alt=""> 
         </div>
-        <div class="product-card--body">
+        <div class="product-card-body">
             <div class="product-header">
-                <a href="" class="author">
-                   ${listItem.volumeInfo.authors[0]}
-                </a>
-                <h3>
-                    <a href="${listItem.volumeInfo.canonicalVolumeLink}" tabindex="0">${listItem.volumeInfo.title} </a>
-                    </h3>
+                <h4 class="title ht">Title: ${listItem.volumeInfo.title.substr(0,40)}</h4>
+                <h4 class="author ht">Author: ${listItem.volumeInfo.authors[0]}</h4>
+                <h4 class="el-link ht"><a href="${listItem.volumeInfo.canonicalVolumeLink}" >${listItem.volumeInfo.title} </a></h4>
             </div>
-            <article>
-                <h2 class="sr-only">${listItem.volumeInfo.publisher}</h2>
-                <p>: ${listItem.volumeInfo.pageCount} </p>
-            </article>
+            <div class="product-details">
+                <h5 class="publisher ht">Publisher: ${listItem.volumeInfo.publisher}</h5>
+                <h5 class="id-number">Id Number: ${listItem.id}</h5>
+            </div>
+            <div class="">
+               <span class="badge badge-blue"> ${listItem.volumeInfo.pageCount} p </span>
+               <span class="badge badge-green"> ${listItem.volumeInfo.language} </span>
+               <span class="badge badge-red"> #${listItem.volumeInfo.categories} </span>
+            
+            
+            </div>
         </div>
     </div>
 </div>

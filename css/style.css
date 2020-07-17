@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
 body{display:flex;min-height:100vh;flex-direction:column;margin:0}
-#main{display:flex;flex:1;flex-direction:column;    padding: 1em;}
+#main{display:flex;flex:1;flex-direction:column;padding:1em}
 #main > article{flex:1}
 #main > nav,#main > aside{background:#f5f5dc}
 #main > nav{order:-1}
@@ -9,12 +9,15 @@ header,footer,nav,aside{padding:1em}
 .row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .cols{position:relative;width:100%;padding-right:15px;padding-left:15px}
 .container{width:100%;margin:auto}
-img {
-    width: 100%;
-    height: 50vh;
-}
-
-
+img{width:auto;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;vertical-align:middle;border-style:none}
+.card-image{min-height:12em}
+.product-card{background:#fff;padding:15px;border:1px solid #e1e5f1;text-align:center;border-top:3px solid #3ecfac;margin-bottom:1em}
+.badge{display:inline-block;padding:.25em .5em;font-size:80%;line-height:1;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.35rem}
+.badge-blue{color:#fff;background-color:#17a2b8}
+.badge-green{color:#fff;background-color:#28a745}
+.ht{min-height:2.4em;    margin: 8px 0;}
+.id-number {margin: 12px 0px;color: #848484;}
+.author {color: #138da0;}
 @media (min-width: 576px) {
 .cols{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}
 #main{flex-direction:column}
@@ -29,7 +32,7 @@ img {
 .cols{-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}
 .container{max-width:960px}
 }
-@media (min-width: 1200px){
-    .cols{-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}
-.container {max-width: 1180px;
-}}
+@media (min-width: 1200px) {
+.cols{-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}
+.container{max-width:1180px}
+}
