@@ -54,60 +54,84 @@
   ul.setAttribute('class','row')
   let html = '';
 
-  const url = 'https://www.googleapis.com/books/v1/volumes?q=search'
-  fetch(url )
-  .then(resp => resp.json()) // Transform data to json
-  .then(data =>  {
-    console.log(data)
-    let listItem = data.items; // Get data
+
+
+  function search(query) {
+     fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
+    
+   
+     .then(resp => resp.json()) // Transform data to json
+     .then(data =>  {
+       console.log(data)
+       let listItem = data.items; // Get data
+    
+   
+     // Map each
+     return listItem.map((listItem) => { 
   
-    // Map each
-    return listItem.map((listItem) => { 
+     //generate HTML
+ let htmlsec = `<div class="cols ">
+ <div class="product-card">
+     <div class="product-list-content">
+         <div class="card-image">
+             <img src=${listItem.volumeInfo.imageLinks.thumbnail} alt=""> 
+         </div>
+         <div class="product-card-body">
+             <div class="product-header">
+                 <h4 class="title ht">Title: ${listItem.volumeInfo.title.substr(0,40)}</h4>
+                 <h4 class="author ht">Author: ${listItem.volumeInfo.authors}</h4>
+                 <h4 class="el-link ht"><a href="${listItem.volumeInfo.canonicalVolumeLink}" >${listItem.volumeInfo.title} </a></h4>
+             </div>
+             <div class="product-details">
+                 <h5 class="publisher ht">Publisher: ${listItem.volumeInfo.publisher}</h5>
+                 <h5 class="id-number">Id Number: ${listItem.id}</h5>
+             </div>
+             <div class="">
+                <span class="badge badge-blue"> ${listItem.volumeInfo.pageCount} p </span>
+                <span class="badge badge-green"> ${listItem.volumeInfo.language} </span>
+                <span class="badge badge-red"> #${listItem.volumeInfo.categories} </span>
+             
+             
+             </div>
+         </div>
+     </div>
+ </div>
+ </div>`;
  
-    //generate HTML
-let htmlsec = `<div class="cols ">
-<div class="product-card">
-    <div class="product-list-content">
-        <div class="card-image">
-            <img src=${listItem.volumeInfo.imageLinks.thumbnail} alt=""> 
-        </div>
-        <div class="product-card-body">
-            <div class="product-header">
-                <h4 class="title ht">Title: ${listItem.volumeInfo.title.substr(0,40)}</h4>
-                <h4 class="author ht">Author: ${listItem.volumeInfo.authors[0]}</h4>
-                <h4 class="el-link ht"><a href="${listItem.volumeInfo.canonicalVolumeLink}" >${listItem.volumeInfo.title} </a></h4>
-            </div>
-            <div class="product-details">
-                <h5 class="publisher ht">Publisher: ${listItem.volumeInfo.publisher}</h5>
-                <h5 class="id-number">Id Number: ${listItem.id}</h5>
-            </div>
-            <div class="">
-               <span class="badge badge-blue"> ${listItem.volumeInfo.pageCount} p </span>
-               <span class="badge badge-green"> ${listItem.volumeInfo.language} </span>
-               <span class="badge badge-red"> #${listItem.volumeInfo.categories} </span>
-            
-            
-            </div>
-        </div>
-    </div>
-</div>
-</div>`;
-
-html += htmlsec;
-
-let container = document.querySelector('.row');
-container.innerHTML = html;
-    })
-
-  })
-  .catch(function(error) {
-    console.log(error);
-  }); 
+ html += htmlsec;
+ 
+ let container = document.querySelector('.row');
+ container.innerHTML = html;
+     })
+ 
+   })
+   .catch(function(error) {
+     console.log(error);
+   }); 
   
-let str = "Hello world!";
-let res = str.substr(11, 1);
+   let html = '';
+  
+  }
 
 
+  //search('[]')
+  //////
+  let inputs = document.querySelector('.search')
+  console.log(inputs)
+  //let vals = inputs.value;
+  //console.log(vals)
+  inputs.addEventListener('input', evt => {
+      const value = inputs.value.trim()
+      if(value){
+         search(value);
+          //console.log('fill')
+     
+      }else {
+        //console.log('unfill');
+        search('[]')
+      }
+   
+  })
 
 /////WAY  3////
 // async function getBooks() {
