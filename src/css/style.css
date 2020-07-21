@@ -16,7 +16,7 @@ header,footer,nav,aside{padding:1em}
 .book-hight-text{min-height:2.4em;margin:8px 0}
 .book-id-number{margin:12px 0;color:#848484}
 .book-.author{color:#138da0}
-.search-input-field{width:30%;position:relative;display:flex;margin-left:auto}
+.search-input-field{width:300px;position:relative;display:flex;margin-left:auto}
 .search-input-field .btn-search{width:70px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;position:absolute;left:0;height:100%;background:#eee;border:0;padding:0;cursor:pointer;display:flex;-ms-flex-pack:center;justify-content:center;align-items:center;border-top-left-radius:34px;border-bottom-left-radius:34px}
 .search-input-field input{height:100%;width:100%;background:transparent;border:0;background:#fff;display:block;width:100%;padding:10px 32px 10px 80px;font-size:18px;color:#666;border-radius:34px}
 [type="button"],[type="submit"]{-webkit-appearance:button}

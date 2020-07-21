@@ -1,32 +1,32 @@
-import {loaderShow,loaderHide} from './components/loader.js'
-import  './css/style.css';
-  ///WAY  2////
-  let ul = document.createElement('ul');
-  ul.setAttribute('style','padding:0')
-  ul.setAttribute('class','row')
-  let html = '';
+import { loaderShow, loaderHide } from './components/loader.js'
+import './css/style.css';
+///WAY  2////
+let ul = document.createElement('ul');
+ul.setAttribute('style', 'padding:0')
+ul.setAttribute('class', 'row')
+let html = '';
 
-  
-  function search(query) {
-    loaderShow('show')
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
+
+const serviceApi = (searchKey) => {
+  loaderShow('show')
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchKey}`)
     .then(response => {
-        if(!response.ok){
-            throw new Error("Could load json.");
-        } 
-        return response.json()
+      if (!response.ok) {
+        throw new Error("Could load json.");
+      }
+      return response.json()
     }) // Transform data to json
-    .then(data =>  {
-      
+    .then(data => {
+
       console.log(data)
       let listItem = data.items; // Get data
       loaderHide('show');
-  
-    // Map each
-    return listItem.map((listItem) => { 
-  
-    //generate HTML
-  let htmlsec = `<div class="book-column ">
+
+      // Map each
+      return listItem.map((listItem) => {
+
+        //generate HTML
+        let htmlsec = `<div class="book-column ">
   <div class="book-card">
     <div class="book-list-content">
         <div class="book-card-image">
@@ -34,7 +34,7 @@ import  './css/style.css';
         </div>
         <div class="book-card-body">
             <div class="book-header">
-                <h4 class="book-title book-hight-text">Title: ${listItem.volumeInfo.title.substr(0,40)}</h4>
+                <h4 class="book-title book-hight-text">Title: ${listItem.volumeInfo.title.substr(0, 40)}</h4>
                 <h4 class="book-author book-hight-text">Author: ${listItem.volumeInfo.authors}</h4>
                 <h4 class="book-el-link book-hight-text"><a href="${listItem.volumeInfo.canonicalVolumeLink}" >${listItem.volumeInfo.title} </a></h4>
             </div>
@@ -53,51 +53,51 @@ import  './css/style.css';
     </div>
   </div>
   </div>`;
-  
-  html += htmlsec;
-  
-  let rows = document.querySelector('.row');
-  rows.innerHTML = html;
+
+        html += htmlsec;
+
+        let rows = document.querySelector('.row');
+        rows.innerHTML = html;
+      })
+
     })
-  
-  })
-  .catch(function(error) {
-    console.log(error);
-  }); 
-  
+    .catch(function (error) {
+      console.log(error);
+    });
+
   let html = '';
-  
-  }
+
+}
 
 
-  search('[]')
-  //////
-  let inputs = document.querySelector('.search');
-  let btnSearch = document.querySelector('.btn-search'); 
-  
-  console.log(inputs)
-  //let vals = inputs.value;
-  //console.log(vals)
+serviceApi('[]')
+//////
+let inputs = document.querySelector('.search');
+let btnSearch = document.querySelector('.btn-search');
+
+console.log(inputs)
+//let vals = inputs.value;
+//console.log(vals)
 //   inputs.addEventListener('input', evt => {
 //       const value = inputs.value.trim()
 //       if(value){
 //          search(value);
 //           //console.log('fill')
-     
+
 //       }else {
 //         //console.log('unfill');
 //         search('[]')
 //       }
-   
+
 //   })
 btnSearch.addEventListener('click', evt => {
-    const value = inputs.value.trim()
-    if(value){
-       search(value);
-    }else {
-      search('[]')
-    }
- 
+  const value = inputs.value.trim()
+  if (value) {
+    serviceApi(value);
+  } else {
+    serviceApi('[]')
+  }
+
 })
 
 

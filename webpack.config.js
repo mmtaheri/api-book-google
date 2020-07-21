@@ -6,13 +6,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            }
-        ],
+        // loaders: [
+        //     {
+        //         test: /\.js$/,
+        //         loader: 'babel-loader',
+        //         exclude: /node_modules/
+        //     }
+        // ],
         rules: [
             {
                 test: /\.css$/,
