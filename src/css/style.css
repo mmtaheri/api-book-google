@@ -2,7 +2,7 @@
 body{display:flex;min-height:100vh;flex-direction:column;margin:0}
 .wrap{display:flex;flex:1;flex-direction:column;padding:1em}
 article,.article-box{flex:1}
-header,footer{background:#9acd32;height:10vh}
+header,footer{background:#9acd32;height:7em}
 header,footer,nav,aside{padding:1em}
 .row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .book-column{position:relative;width:100%;padding-right:15px;padding-left:15px}
