@@ -1,3 +1,5 @@
+@import './variable';
+
 @mixin border($border) {
     border:$border;
     -webkit-border:$border;
@@ -10,4 +12,25 @@
     -webkit-border-radius:$border-radius;
     -moz-borderborder-radius:$border-radius;
     -ms-borderborder-radius:$border-radius;
+}
+
+@mixin mobile{
+    @media #{$max-width-mobile}{
+        @content;
+    }
+}
+@mixin tablet{
+    @media (min-width:$tablet-width){
+        @content;
+    }
+}
+@mixin laptop{
+    @media (min-width:$laptop-width){
+        @content;
+    }
+}
+@mixin desktop{
+    @media (min-width:$desktop-width){
+        @content;
+    }
 }

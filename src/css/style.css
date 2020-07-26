@@ -1,4 +1,4 @@
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{display:flex;min-height:100vh;flex-direction:column;margin:0}
 .wrap{display:flex;flex:1;flex-direction:column;padding:1em;   height: 5em;}
 .article-box{flex:1}

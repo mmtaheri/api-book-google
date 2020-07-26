@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "mixins.scss",
+        "_variable.scss"
+    ],
+    "names": [],
+    "file": "mixins.css"
+}

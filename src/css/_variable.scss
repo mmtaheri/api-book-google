@@ -1,4 +1,9 @@
-$breakpoint-mobile:576px;
-$breakpoint-tablet:768px;
-$breakpoint-laptop:992px;
-$breakpoint-desktop:1200px;
+$mobile-width:576px;
+$tablet-width:768px;
+$laptop-width:992px;
+$desktop-width:1200px;
+
+$max-width-mobile:"(max-width:576px)";
+$max-width-tablet:"(max-width:768px)";
+$max-width-laptop:"(max-width:992px)";
+$max-width-desktop:"(max-width:1200px)";
