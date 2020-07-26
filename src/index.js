@@ -1,6 +1,7 @@
 
 import serviceApi  from './components/serviceApi.js'
-import './css/style.css';
+//import './css/style.css';
+import './css/scss.scss';
 
 ///WAY  2////
 let ul = document.createElement('ul');
@@ -31,15 +32,15 @@ let html = '';
               </div>
               <div class="book-details">
                   <h5 class="book-publisher book-hight-text">Publisher: ${listItem.volumeInfo.publisher}</h5>
-                  <h5 class="book-id-number">Id Number: ${listItem.id}</h5>
-              </div>
-              <div class="">
-                 <span class="book-badge book-badge-blue"> ${listItem.volumeInfo.pageCount} p </span>
-                 <span class="book-badge book-badge-green"> ${listItem.volumeInfo.language} </span>
-                 <span class="book-badge book-badge-red"> #${listItem.volumeInfo.categories} </span>
-              
-              
-              </div>
+                  <h5 class="book-id-number book-hight-text">Id Number: ${listItem.id}</h5>
+                  </div>
+                  <div class="book-details-footer">
+                  <span class="book-badge book-badge-blue"> ${listItem.volumeInfo.pageCount} p </span>
+                  <span class="book-badge book-badge-green"> ${listItem.volumeInfo.language} </span>
+                  <span class="book-badge book-badge-red"> #${listItem.volumeInfo.categories} </span>
+                  </div>
+          
+         
           </div>
       </div>
     </div>

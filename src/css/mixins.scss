@@ -1,0 +1,13 @@
+@mixin border($border) {
+    border:$border;
+    -webkit-border:$border;
+    -moz-border:$border;
+    -ms-border:$border;
+}
+
+@mixin border-radius($border-radius) {
+    border-radius:$border-radius;
+    -webkit-border-radius:$border-radius;
+    -moz-borderborder-radius:$border-radius;
+    -ms-borderborder-radius:$border-radius;
+}

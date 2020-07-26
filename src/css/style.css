@@ -1,21 +1,47 @@
 *{box-sizing:border-box}
 body{display:flex;min-height:100vh;flex-direction:column;margin:0}
-.wrap{display:flex;flex:1;flex-direction:column;padding:1em}
-article,.article-box{flex:1}
-header,footer{background:#9acd32;height:7em}
-header,footer,nav,aside{padding:1em}
+.wrap{display:flex;flex:1;flex-direction:column;padding:1em;   height: 5em;}
+.article-box{flex:1}
+.header,.footer{background:#9acd32;height:7em;padding:1em}
 .row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .book-column{position:relative;width:100%;padding-right:15px;padding-left:15px}
 .container{width:100%;margin:auto}
 .book-card-image img{width:auto;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;vertical-align:middle;border-style:none}
-.book-card-image{min-height:12em}
+.book-card-image {
+    height: 13em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .book-card{background:#fff;padding:15px;border:1px solid #e1e5f1;text-align:center;border-top:3px solid #3ecfac;margin-bottom:1em}
-.book-badge{display:inline-block;padding:.25em .5em;font-size:80%;line-height:1;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.35rem}
+.book-badge{padding:.25em .5em;font-size:80%;line-height:1;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.35rem}
 .book-badge-blue{color:#fff;background-color:#17a2b8}
 .book-badge-green{color:#fff;background-color:#28a745}
 .book-hight-text{min-height:2.4em;margin:8px 0}
 .book-id-number{margin:12px 0;color:#848484}
 .book-.author{color:#138da0}
+
+.book-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+.book-details-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+    .book-details-footer .book-badge {
+        flex-basis: calc(49% - 10px);
+        flex-grow: 1;
+        margin-left: 5px;
+    }
+
+
 .search-input-field{width:300px;position:relative;display:flex;margin-left:auto}
 .search-input-field .btn-search{width:70px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;position:absolute;left:0;height:100%;background:#eee;border:0;padding:0;cursor:pointer;display:flex;-ms-flex-pack:center;justify-content:center;align-items:center;border-top-left-radius:34px;border-bottom-left-radius:34px}
 .search-input-field input{height:100%;width:100%;background:transparent;border:0;background:#fff;display:block;width:100%;padding:10px 32px 10px 80px;font-size:18px;color:#666;border-radius:34px}
@@ -31,6 +57,8 @@ to{transform:rotate(360deg)}
 }
 #spinner.show{visibility:visible}
 #spinner.hide{visibility:visible}
+
+
 @media (min-width: 576px) {
 .book-column{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}
 .wrap{flex-direction:column}

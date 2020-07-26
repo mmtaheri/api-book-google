@@ -7,6 +7,7 @@
     }
  const loaderHide = notLoad =>{
     boxLoader.classList.remove(notLoad);
+    //boxLoader.remove()
     }
 
   export  {loaderShow,loaderHide}
