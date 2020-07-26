@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development ./src/index.js --output ./dist/dev-bundle.js",
     "build": "webpack --mode production ./src/index.js --output ./build/bundle.js",
-    "watch": "npm run dev -- --watch"
+    "watch": "npm run dev -- --watch",
+    "lint": "eslint ./src"
   },
   "repository": {
     "type": "git",

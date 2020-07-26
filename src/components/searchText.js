@@ -16,19 +16,21 @@
 
 //   })
 //function searchFunc(){
-     let inputs = document.querySelector('.search');
-let btnSearch = document.querySelector('.btn-search');
 
-console.log(inputs)
-     btnSearch.addEventListener('click', evt => {
-  const value = inputs.value.trim()
-  if (value) {
-    serviceApi(value);
-  } else {
-    serviceApi('[]')
-  }
 
-})
+//      let inputs = document.querySelector('.search');
+// let btnSearch = document.querySelector('.btn-search');
+
+// console.log(inputs)
+//      btnSearch.addEventListener('click', evt => {
+//   const value = inputs.value.trim()
+//   if (value) {
+//     serviceApi(value);
+//   } else {
+//     serviceApi('[]')
+//   }
+
+// })
 //}
 
-export default serviceApi;
+//export default serviceApi;

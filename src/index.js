@@ -7,7 +7,7 @@ import './css/scss.scss';
 let ul = document.createElement('ul');
 ul.setAttribute('style', 'padding:0')
 ul.setAttribute('class', 'row')
-let html = '';
+
 
       //// Map each
       function searchBook(parm){
