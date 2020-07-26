@@ -1,5 +1,7 @@
 const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 
 module.exports = {
@@ -42,11 +44,15 @@ module.exports = {
         ]
     },
     plugins: [
-     
+      new HtmlWebpackPlugin({
+        title:'mmt app',
+        template:'./index.html'
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
-        chunkFilename: '[id].[contenthash].css',
+        //chunkFilename: '[id].[contenthash].css',
       }),
+     
     ],
 
 };

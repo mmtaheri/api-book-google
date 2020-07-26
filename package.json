@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./src/index.js --output ./dist/bundle.js",
-    "build": "webpack --mode production ./src/index.js --output ./dist/bundle.js",
+    "dev": "webpack --mode development ./src/index.js --output ./dist/dev-bundle.js",
+    "build": "webpack --mode production ./src/index.js --output ./build/bundle.js",
     "watch": "npm run dev -- --watch"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "eslint": "^7.5.0",
+    "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^9.0.2",
