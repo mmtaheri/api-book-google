@@ -108,7 +108,7 @@ svg:not(:root){overflow:hidden}
 
 
 
-#spinner{visibility:hidden;width:80px;height:80px;
+#spinner{visibility:hidden;width:80px;height:80px;display: none;
     @include border(1px solid #f3f3f3);
     border-top:3px solid #f25a41;
     @include border-radius(100%)
@@ -117,7 +117,7 @@ svg:not(:root){overflow:hidden}
 from{transform:rotate(0deg)}
 to{transform:rotate(360deg)}
 }
-#spinner.show{visibility:visible}
-#spinner.hide{visibility:visible}
+#spinner.show{visibility:visible;display: block;}
+
 
 
