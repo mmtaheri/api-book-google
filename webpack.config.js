@@ -44,10 +44,10 @@ module.exports = {
         ]
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        title:'mmt app',
-        template:'./index.html'
-      }),
+      // new HtmlWebpackPlugin({
+      //   title:'mmt app',
+      //   template:'./index.html'
+      // }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
         //chunkFilename: '[id].[contenthash].css',

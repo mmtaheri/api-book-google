@@ -1,5 +1,5 @@
 
-import {searchBook} from '../index.js';
+import {searchBook} from '../components/templateListBook.js';
 
 
 function searchModule(classElement){
