@@ -1,5 +1,6 @@
 
-import serviceApi  from './components/serviceApi.js'
+import serviceApi  from './components/serviceApi.js';
+import searchModule from './components/searchText.js'
 //import './css/style.css';
 import './css/scss.scss';
 
@@ -45,6 +46,7 @@ ul.setAttribute('class', 'row')
       </div>
     </div>
     </div>`;
+    
     html += htmlsec;
   
     let rows = document.querySelector('.row');
@@ -58,14 +60,6 @@ ul.setAttribute('class', 'row')
 
       searchBook('[]')
       ///////seach/////////
-let inputSearch = document.querySelector('.search');
-let btnSearch = document.querySelector('.btn-search');
-    btnSearch.addEventListener('click', evt => {
-  const value = inputSearch.value.trim()
-  if (value) {
-    searchBook(value);
-  } else {
-    searchBook('[]')
-  }
+      searchModule('footer');
 
-})
+export {searchBook}

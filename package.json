@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./src/index.js --output ./dist/dev-bundle.js",
+    "dev": "webpack --mode development ./src/index.js --output ./dev-bundle.js",
     "build": "webpack --mode production ./src/index.js --output ./build/bundle.js",
     "watch": "npm run dev -- --watch",
     "lint": "eslint ./src"
