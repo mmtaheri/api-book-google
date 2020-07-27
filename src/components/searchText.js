@@ -16,14 +16,14 @@ function searchModule(classElement){
 
   htmlSearchsec += htmlSearch
   let rowSearch = document.getElementsByClassName(classElement);
-  rowSearch[0].innerHTML = htmlSearchsec
+  rowSearch[0].insertAdjacentHTML('beforeend',htmlSearchsec );
+  //rowSearch[0].innerHTML += htmlSearchsec
 
   let inputs = document.querySelector('.search');
   let btnSearch = document.querySelector('.btn-search');
 
-     btnSearch.addEventListener('click', evt => {
+     btnSearch.addEventListener('click',() => {
     const value = inputs.value.trim();
-
 
     if (value) {
     searchBook(value);

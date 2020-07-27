@@ -10,5 +10,5 @@ ul.setAttribute('style', 'padding:0')
 ul.setAttribute('class', 'row')
 
       ///////seach/////////
-      searchModule('footer');
+      searchModule('header');
 
